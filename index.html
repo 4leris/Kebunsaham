@@ -1,1459 +1,2370 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+  <!DOCTYPE html>
+  <html lang="id" class="scroll-smooth">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Kebunsaham</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kebunsaham</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- GOOGLE ANALYTICS -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3PMQKENHZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+    <!-- GOOGLE ANALYTICS -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3PMQKENHZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-    dataLayer.push(arguments);
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-T3PMQKENHZ');
+  </script>
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  </head>
+
+  <body class="text-white font-sans bg-black relative overflow-x-hidden">
+
+  <style>
+
+  /* =========================
+    GLOBAL
+  ========================= */
+
+  html,
+  body {
+
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+
   }
 
-  gtag('js', new Date());
-  gtag('config', 'G-T3PMQKENHZ');
-</script>
-
-  <!-- TAILWIND -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS -->
-  <link rel="stylesheet"
-        href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-</head>
-
-<body class="text-white font-sans bg-black relative overflow-x-hidden">
-
-<style>
-
-/* =========================
-   GLOBAL
-========================= */
-
-html,
-body {
-
-  margin: 0;
-  padding: 0;
-
-  overflow-x: hidden;
-
-}
-
-img {
-
-  max-width: 100%;
-
-  display: block;
-
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* =========================
-   GREEN LINE
-========================= */
-
-.green-line {
-  position: relative;
-  max-width: 1280px;
-  margin: auto;
-  padding: 10px 24px;
-}
-
-.green-line .line {
-  height: 2px;
-  width: 100%;
-  border-radius: 999px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    #4ade80,
-    transparent
-  );
-}
-
-.green-line .glow {
-  position: absolute;
-  inset: 0;
-  height: 2px;
-  width: 100%;
-  border-radius: 999px;
-  opacity: .7;
-  filter: blur(8px);
-  background: linear-gradient(
-    to right,
-    transparent,
-    #22c55e,
-    transparent
-  );
-}
-
-/* =========================
-   SLIDER
-========================= */
-
-.slider-container {
-  position: relative;
-  max-width: 900px;
-  margin: auto;
-  overflow: hidden;
-}
-
-.slider-track {
-  position: relative;
-  width: 100%;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-
-  opacity: 0;
-  transition: opacity .8s ease;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-
-  pointer-events: none;
-}
-
-.slide.active {
-  position: relative;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.slide-item {
-  width: 100%;
-  aspect-ratio: 9 / 16;
-
-  transition: .4s ease;
-}
-
-.slide-item img {
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  border-radius: 20px;
-
-  border: 1px solid rgba(255,255,255,.08);
-
-  box-shadow: 0 20px 50px rgba(0,0,0,.45);
-
-  transition: .4s ease;
-
-  will-change: transform;
-
-}
-
-.slide-item:hover img {
-
-  border-color: rgba(74,222,128,.4);
-  box-shadow: 0 0 40px rgba(34,197,94,.15);
-
-}
-
-@media (max-width: 900px) {
-  .slide {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 90px;
+  }
+}
+
+  img {
+
+    max-width: 100%;
+
+    display: block;
+
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* =========================
+    GREEN LINE
+  ========================= */
+
+  .green-line {
+    position: relative;
+    max-width: 1280px;
+    margin: auto;
+    padding: 10px 24px;
+  }
+
+  .green-line .line {
+    height: 2px;
+    width: 100%;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #4ade80,
+      transparent
+    );
+  }
+
+  .green-line .glow {
+    position: absolute;
+    inset: 0;
+    height: 2px;
+    width: 100%;
+    border-radius: 999px;
+    opacity: .7;
+    filter: blur(8px);
+    background: linear-gradient(
+      to right,
+      transparent,
+      #22c55e,
+      transparent
+    );
+  }
+
+  /* =========================
+    SLIDER
+  ========================= */
+
+  .slider-container {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .slider-track {
+    position: relative;
+    width: 100%;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+    transition: opacity .8s ease;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+
+    pointer-events: none;
+  }
+
+  .slide.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide-item {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+
+    transition: .4s ease;
+  }
+
+  .slide-item img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
+
+    transition: .4s ease;
+
+    will-change: transform;
+
+  }
+
+  .slide-item:hover img {
+
+    border-color: rgba(74,222,128,.4);
+    box-shadow: 0 0 40px rgba(34,197,94,.15);
+
+  }
+
+  @media (max-width: 900px) {
+    .slide {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .slider-container {
+      max-width: 100%;
+    }
+
+    .slide {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .slide-item {
+      max-width: 92%;
+      margin: auto;
+    }
+  }
+
+  /* MOBILE */
+  @media (max-width:640px){
+
+  .slide{
+      grid-template-columns:1fr;
+  }
+
+  .slide-item{
+      max-width:92%;
+      margin:auto;
+  }
+
+  /* sembunyikan item ke-2 dan ke-3 */
+  .slide-item:nth-child(2),
+  .slide-item:nth-child(3){
+
+      display:none;
+
+  }
+
+  }
+
+  /* =========================
+    SLIDER CONTROLS
+  ========================= */
+
+  .slider-controls {
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-top: 34px;
+
+  }
+
+  .slider-dots {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+  }
+
+  .slider-dot {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.15);
+
+    transition: .35s ease;
+
+    cursor: pointer;
+
+  }
+
+  .slider-dot.active {
+
+    width: 34px;
+
+    background: linear-gradient(
+      to right,
+      #22c55e,
+      #ffffff
+    );
+
+    box-shadow: 0 0 18px rgba(34,197,94,.45);
+
+  }
+
+  .slider-arrows {
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+  }
+
+  .arrow-btn {
+
+    width: 56px;
+    height: 56px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.03);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    color: white;
+
+    transition: .3s ease;
+
+    cursor: pointer;
+
+  }
+
+  .arrow-btn:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(255,255,255,.2);
+
+    background: rgba(255,255,255,.06);
+
+    box-shadow: 0 0 30px rgba(255,255,255,.05);
+  }
+
+  /* =========================
+    FEATURED GRID
+  ========================= */
+
+  .program-card {
+
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    backdrop-filter: blur(14px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    transition: .35s ease;
+
+    will-change: transform;
+
+  }
+
+  /* GREEN GLOW INSIDE CARD */
+
+  .program-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 35%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 320px;
+    height: 220px;
+
+    border-radius: 999px;
+
+    background:
+    radial-gradient(
+        ellipse,
+        rgba(34,197,94,.28) 0%,
+        rgba(34,197,94,.16) 35%,
+        rgba(34,197,94,.06) 60%,
+        transparent 80%
+    );
+
+    filter: blur(65px);
+
+    pointer-events: none;
+
+  }
+
+  /* KEEP CONTENT ABOVE GLOW */
+
+  .program-card > * {
+
+    position: relative;
+
+    z-index: 2;
+
+  }
+
+  .program-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: rgba(74,222,128,.4);
+
+    box-shadow: 0 0 40px rgba(34,197,94,.15);
+
+  }
+
+  @media (min-width:768px) {
+
+    .program-card {
+
+      padding:36px;
+
+    }
+
+  }
+
+  .program-title {
+  min-height: 40px;
+  margin-bottom: 48px;
+}
+
+.program-list {
+  flex: 1;
+}
+
+.program-card .main-btn {
+  margin-top: auto;
+}
+  /* =========================
+    BUTTON
+  ========================= */
+
+  .main-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 320px;
+
+    padding: 15px 24px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+      to right,
+      #22c55e,
+      #34d399
+    );
+
+    font-weight: 700;
+
+    font-size: 15px;
+    line-height: 1.2;
+
+    text-align: center;
+
+    transition:
+      transform .25s ease,
+      box-shadow .25s ease,
+      opacity .25s ease;
+
+  }
+
+  /* DESKTOP HOVER */
+  .main-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 0 30px rgba(34,197,94,.35);
+
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+
+    .main-btn {
+
+      max-width: 100%;
+
+      width: 100%;
+
+      padding: 14px 20px;
+
+      font-size: 14px;
+
+      border-radius: 16px;
+
+    }
+
+    .main-btn:hover {
+
+      transform: none;
+
+    }
+
+  }
+
+  /* =========================
+    SMALL MOBILE
+  ========================= */
+
+  @media (max-width: 480px) {
+
+    .mobile-menu-btn {
+
+      top: 12px;
+      left: 12px;
+
+      width: 46px;
+      height: 46px;
+
+      border-radius: 14px;
+
+    }
+
+    .mobile-menu {
+
+      top: 68px;
+      left: 12px;
+
+      width: calc(100vw - 24px);
+
+      border-radius: 18px;
+
+      padding: 14px;
+
+    }
+
+    .mobile-menu a {
+
+      padding: 12px;
+
+      font-size: 14px;
+
+    }
+
+  }
+
+  /* =========================
+   MOBILE SAFE OVERRIDE
+========================= */
+
+@media (max-width: 640px) {
+
+  section {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
   .slider-container {
     max-width: 100%;
+    overflow: hidden;
+  }
+
+  .slider-track {
+    min-height: 420px;
   }
 
   .slide {
     grid-template-columns: 1fr;
-    gap: 0;
   }
 
   .slide-item {
     max-width: 92%;
     margin: auto;
   }
-}
 
-/* MOBILE */
-@media (max-width:640px){
-
-.slide{
-    grid-template-columns:1fr;
-}
-
-.slide-item{
-    max-width:92%;
-    margin:auto;
-}
-
-/* sembunyikan item ke-2 dan ke-3 */
-.slide-item:nth-child(2),
-.slide-item:nth-child(3){
-
-    display:none;
-
-}
-
-}
-
-/* =========================
-   SLIDER CONTROLS
-========================= */
-
-.slider-controls {
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 22px;
-
-  margin-top: 34px;
-
-}
-
-.slider-dots {
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-}
-
-.slider-dot {
-
-  width: 10px;
-  height: 10px;
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.15);
-
-  transition: .35s ease;
-
-  cursor: pointer;
-
-}
-
-.slider-dot.active {
-
-  width: 34px;
-
-  background: linear-gradient(
-    to right,
-    #22c55e,
-    #ffffff
-  );
-
-  box-shadow: 0 0 18px rgba(34,197,94,.45);
-
-}
-
-.slider-arrows {
-
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-}
-
-.arrow-btn {
-
-  width: 56px;
-  height: 56px;
-
-  border-radius: 18px;
-
-  background: rgba(255,255,255,.03);
-
-  border: 1px solid rgba(255,255,255,.08);
-
-  backdrop-filter: blur(10px);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 20px;
-  color: white;
-
-  transition: .3s ease;
-
-  cursor: pointer;
-
-}
-
-.arrow-btn:hover {
-
-  transform: translateY(-2px);
-
-  border-color: rgba(255,255,255,.2);
-
-  background: rgba(255,255,255,.06);
-
-  box-shadow: 0 0 30px rgba(255,255,255,.05);
-}
-
-/* =========================
-   FEATURED GRID
-========================= */
-
-.program-card {
-
-  position: relative;
-  overflow: hidden;
-
-  width: 100%;
-
-  background: rgba(255,255,255,.04);
-
-  border: 1px solid rgba(255,255,255,.08);
-
-  border-radius: 24px;
-
-  padding: 28px;
-
-  backdrop-filter: blur(14px);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  gap: 24px;
-
-  transition: .35s ease;
-
-  will-change: transform;
-
-}
-
-/* GREEN GLOW INSIDE CARD */
-
-.program-card::before {
-
-  content: "";
-
-  position: absolute;
-
-  top: 35%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  width: 320px;
-  height: 220px;
-
-  border-radius: 999px;
-
-  background:
-  radial-gradient(
-      ellipse,
-      rgba(34,197,94,.28) 0%,
-      rgba(34,197,94,.16) 35%,
-      rgba(34,197,94,.06) 60%,
-      transparent 80%
-  );
-
-  filter: blur(65px);
-
-  pointer-events: none;
-
-}
-
-/* KEEP CONTENT ABOVE GLOW */
-
-.program-card > * {
-
-  position: relative;
-
-  z-index: 2;
-
-}
-
-.program-card:hover {
-
-  transform: translateY(-4px);
-
-  border-color: rgba(74,222,128,.4);
-
-  box-shadow: 0 0 40px rgba(34,197,94,.15);
-
-}
-
-@media (min-width:768px) {
+  .slide-item:nth-child(2),
+  .slide-item:nth-child(3) {
+    display: none;
+  }
 
   .program-card {
+    padding: 24px;
+    border-radius: 22px;
+  }
 
-    padding:36px;
+  .green-line {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 
+  .floating-button img {
+    width: 150px;
   }
 
 }
 
-/* =========================
-   BUTTON
-========================= */
+  /* =========================
+    FAQ SECTION
+  ========================= */
 
-.main-btn {
+  .faq-shell {
+    position: relative;
+  }
 
+  .faq-shell::before {
+    content: "";
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(760px, 92vw);
+    height: 260px;
+    border-radius: 999px;
+    background: radial-gradient(
+      ellipse,
+      rgba(34,197,94,.18) 0%,
+      rgba(34,197,94,.08) 45%,
+      transparent 75%
+    );
+    filter: blur(75px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .faq-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.035);
+    border-radius: 22px;
+    backdrop-filter: blur(14px);
+    transition:
+      border-color .3s ease,
+      background .3s ease,
+      box-shadow .3s ease,
+      transform .3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(74,222,128,.35);
+    background: rgba(255,255,255,.055);
+  }
+
+  .faq-item.active {
+    border-color: rgba(74,222,128,.55);
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(34,197,94,.14),
+        rgba(255,255,255,.04) 42%,
+        rgba(255,255,255,.025)
+      );
+    box-shadow: 0 0 34px rgba(34,197,94,.12);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    text-align: left;
+    color: white;
+    font-weight: 700;
+    line-height: 1.45;
+    cursor: pointer;
+  }
+
+  .faq-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  flex: 0 0 auto;
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
-  width: 100%;
-  max-width: 320px;
-
-  padding: 15px 24px;
-
-  border-radius: 18px;
-
-  background: linear-gradient(
-    to right,
-    #22c55e,
-    #34d399
-  );
-
-  font-weight: 700;
-
-  font-size: 15px;
-  line-height: 1.2;
-
-  text-align: center;
-
+  color: #86efac;
+  background: rgba(34,197,94,.10);
+  border: 1px solid rgba(74,222,128,.18);
+  font-size: 24px;
+  line-height: 1;
   transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    opacity .25s ease;
-
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    color .3s ease;
 }
 
-/* DESKTOP HOVER */
-.main-btn:hover {
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 0 30px rgba(34,197,94,.35);
-
+.faq-icon svg {
+  display: block;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+  .faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  color: #ffffff;
+  background: linear-gradient(to right, #22c55e, #34d399);
+  border-color: rgba(255,255,255,.18);
+}
 
-  .main-btn {
-
-    max-width: 100%;
-
-    width: 100%;
-
-    padding: 14px 20px;
-
-    font-size: 14px;
-
-    border-radius: 16px;
-
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
   }
 
-  .main-btn:hover {
-
-    transform: none;
-
+  .faq-answer-inner {
+    padding: 0 24px 24px;
+    color: rgb(156 163 175);
+    line-height: 1.75;
+    font-size: 15px;
   }
 
-}
+  @media (max-width: 640px) {
+    .faq-question {
+      padding: 18px;
+      font-size: 15px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 18px 20px;
+      font-size: 14px;
+    }
+
+    .faq-icon {
+      width: 30px;
+      height: 30px;
+      font-size: 22px;
+    }
+  }
 
 /* =========================
-   SMALL MOBILE
+   EXTRA FAQ TOGGLE
 ========================= */
 
-@media (max-width: 480px) {
-
-  .mobile-menu-btn {
-
-    top: 12px;
-    left: 12px;
-
-    width: 46px;
-    height: 46px;
-
-    border-radius: 14px;
-
-  }
-
-  .mobile-menu {
-
-    top: 68px;
-    left: 12px;
-
-    width: calc(100vw - 24px);
-
-    border-radius: 18px;
-
-    padding: 14px;
-
-  }
-
-  .mobile-menu a {
-
-    padding: 12px;
-
-    font-size: 14px;
-
-  }
-
+.extra-faq-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height .45s ease,
+    opacity .35s ease,
+    margin-top .35s ease;
 }
-</style>
 
-<!-- BACKGROUND -->
-<div class="fixed inset-0 -z-10 overflow-hidden">
+.extra-faq-wrapper.show {
+  opacity: 1;
+  margin-top: 16px;
+}
 
-  <!-- BASE -->
-  <div class="absolute inset-0 bg-black"></div>
+.extra-faq-toggle {
+  width: 100%;
+  margin-top: 18px;
+  padding: 16px 20px;
 
-  <!-- MAIN TOP GLOW -->
-  <div class="absolute
-              top-[-12%]
-              left-1/2
-              -translate-x-1/2
+  border-radius: 18px;
+  border: 1px solid rgba(74,222,128,.25);
 
-              w-[90vw]
-              max-w-[1000px]
+  background: rgba(34,197,94,.08);
+  color: #86efac;
 
-              h-[90vw]
-              max-h-[900px]
+  font-weight: 700;
+  font-size: 15px;
 
-              bg-green-500
-              opacity-20
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
-              blur-[120px]
-              md:blur-[220px]">
+  cursor: pointer;
+
+  transition:
+    background .3s ease,
+    border-color .3s ease,
+    transform .25s ease;
+}
+
+.extra-faq-toggle:hover {
+  background: rgba(34,197,94,.14);
+  border-color: rgba(74,222,128,.45);
+  transform: translateY(-2px);
+}
+
+.extra-faq-toggle svg {
+  transition: transform .3s ease;
+}
+
+.extra-faq-toggle.active svg {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 640px) {
+  .extra-faq-toggle {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+}
+
+  </style>
+
+  <!-- BACKGROUND -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+
+    <!-- BASE -->
+    <div class="absolute inset-0 bg-black"></div>
+
+    <!-- MAIN TOP GLOW -->
+    <div class="absolute
+                top-[-12%]
+                left-1/2
+                -translate-x-1/2
+
+                w-[90vw]
+                max-w-[1000px]
+
+                h-[90vw]
+                max-h-[900px]
+
+                bg-green-500
+                opacity-20
+
+                blur-[120px]
+                md:blur-[220px]">
+    </div>
+
+    <!-- RIGHT BOTTOM GLOW -->
+    <div class="absolute
+                bottom-[-10%]
+                right-[-10%]
+
+                w-[45vw]
+                max-w-[500px]
+
+                h-[45vw]
+                max-h-[500px]
+
+                bg-emerald-400
+                opacity-[0.06]
+
+                blur-[90px]
+                md:blur-[200px]
+
+                rounded-full">
+    </div>
+
+    <!-- LEFT MID GLOW -->
+    <div class="absolute
+                top-[35%]
+                left-[-18%]
+
+                w-[38vw]
+                max-w-[350px]
+
+                h-[38vw]
+                max-h-[350px]
+
+                bg-emerald-500
+                opacity-[0.08]
+
+                blur-[70px]
+                md:blur-[160px]
+
+                rounded-full">
+    </div>
+
+    <!-- RIGHT MID GLOW -->
+    <div class="absolute
+                top-[58%]
+                right-[-15%]
+
+                w-[34vw]
+                max-w-[300px]
+
+                h-[34vw]
+                max-h-[300px]
+
+                bg-green-400
+                opacity-[0.08]
+
+                blur-[60px]
+                md:blur-[150px]
+
+                rounded-full">
+    </div>
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0
+                bg-gradient-to-b
+                from-transparent
+                via-black/40
+                to-black">
+    </div>
+
   </div>
 
-  <!-- RIGHT BOTTOM GLOW -->
-  <div class="absolute
-              bottom-[-10%]
-              right-[-10%]
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 z-50 w-full
+              flex items-center justify-between
+              gap-4
+              px-4 md:px-12
+              py-3 md:py-4
+              bg-black/50
+              backdrop-blur-xl
+              border-b border-white/5">
 
-              w-[45vw]
-              max-w-[500px]
-
-              h-[45vw]
-              max-h-[500px]
-
-              bg-emerald-400
-              opacity-[0.06]
-
-              blur-[90px]
-              md:blur-[200px]
-
-              rounded-full">
-  </div>
-
-  <!-- LEFT MID GLOW -->
-  <div class="absolute
-              top-[35%]
-              left-[-18%]
-
-              w-[38vw]
-              max-w-[350px]
-
-              h-[38vw]
-              max-h-[350px]
-
-              bg-emerald-500
-              opacity-[0.08]
-
-              blur-[70px]
-              md:blur-[160px]
-
-              rounded-full">
-  </div>
-
-  <!-- RIGHT MID GLOW -->
-  <div class="absolute
-              top-[58%]
-              right-[-15%]
-
-              w-[34vw]
-              max-w-[300px]
-
-              h-[34vw]
-              max-h-[300px]
-
-              bg-green-400
-              opacity-[0.08]
-
-              blur-[60px]
-              md:blur-[150px]
-
-              rounded-full">
-  </div>
-
-  <!-- DARK OVERLAY -->
-  <div class="absolute inset-0
-              bg-gradient-to-b
-              from-transparent
-              via-black/40
-              to-black">
-  </div>
-
-</div>
-
-<!-- NAVBAR -->
-<nav class="fixed top-0 left-0 z-50 w-full
-            flex items-center justify-between
-            gap-4
-            px-4 md:px-12
-            py-3 md:py-4
-            bg-black/50
-            backdrop-blur-xl
-            border-b border-white/5">
-
-  <a href="#">
-    <img src="./images/logo.jpg.png"
-         class="h-12 sm:h-14 md:h-20 object-contain">
-  </a>
-
-  <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-
-  <a href="#testimoni"
-     class="text-gray-300 hover:text-white transition">
-    Testimoni
-  </a>
-
-  <a href="#hasiltrade"
-     class="text-gray-300 hover:text-white transition">
-    Hasil Trade
-  </a>
-
-  <a href="#program"
-     class="text-gray-300 hover:text-white transition">
-    Program
-  </a>
-
-</div>
-
-<div class="flex items-center gap-2 sm:gap-3 md:gap-5">
-
-    <a href="https://wa.me/6281330536588" target="_blank">
-      <img src="./images/whatsapp.jpg"
-           class="w-9 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
+    <a href="#">
+      <img src="./images/logo.png"
+          class="h-12 sm:h-14 md:h-20 object-contain">
     </a>
 
-    <a href="https://www.tiktok.com/@kebunsaham" target="_blank">
-      <img src="./images/tiktok.jpg"
-           class="w-9 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+
+    <a href="#testimoni"
+      class="text-gray-300 hover:text-white transition">
+      Testimoni
     </a>
 
-    <a href="https://www.youtube.com/@kebunsaham" target="_blank">
-      <img src="./images/youtube.jpg"
-           class="w-9 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
+    <a href="#hasiltrade"
+      class="text-gray-300 hover:text-white transition">
+      Hasil Trade
     </a>
 
-    <a href="https://instagram.com/kebunsaham" target="_blank">
-      <img src="./images/instagram.jpg"
-           class="w-9 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
+    <a href="#program"
+      class="text-gray-300 hover:text-white transition">
+      Program
+    </a>
+
+    <a href="#faq"
+      class="text-gray-300 hover:text-white transition">
+      FAQ
     </a>
 
   </div>
 
-</nav>
+  <div class="flex items-center gap-1.5 sm:gap-3 md:gap-5">
 
-<!-- FLOATING BUTTON -->
-<a href="https://t.me/kebunsahamgrup"
+      <a href="https://wa.me/6281330536588" target="_blank">
+        <img src="./images/whatsapp-new.jpg"
+            class="w-8 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
+      </a>
+
+      <a href="https://www.tiktok.com/@kebunsaham"
    target="_blank"
-   class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
-   onclick="gtag('event', 'click_telegram_community');">
+   title="TikTok Konten"
+   class="relative">
 
-  <div class="bg-gradient-to-r from-blue-500 to-black
-              px-3 sm:px-4
-              rounded-2xl
-              shadow-2xl
-              hover:scale-105
-              transition">
-
-    <img src="./images/Gabung.png"
-         class="w-40 sm:w-48 md:w-72 object-contain">
-
-  </div>
+  <img src="./images/tiktok-new.jpg"
+       class="w-8 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
 
 </a>
 
-<!-- HERO -->
-<section
-  data-aos="fade-up"
-  class="text-center pt-32 md:pt-40 pb-20 md:pb-28 px-5 md:px-6">
 
-  <div class="max-w-5xl mx-auto">
-
-    <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 md:mb-8">
-
-      Bangun Kebebasan Finansial Dari
-
-      <span class="bg-gradient-to-r from-green-400 to-emerald-300 text-transparent bg-clip-text">
-
-        Signal Gold Hingga +12.000%
-        & Auto Trade Crypto
-
-      </span>
-
-    </h1>
-
-    <p class="text-gray-400 text-base md:text-xl max-w-3xl mx-auto leading-relaxed mb-8 md:mb-10">
-
-      Join komunitas trading terbesar Kebunsaham.
-      Dapatkan signal, analisa market, dan sistem auto-trade
-      untuk membantu profit lebih konsisten.
-
-    </p>
-
-    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-
-      <a href="#program"
-         class="main-btn">
-
-        Join Sekarang
-
+      <a href="https://www.youtube.com/@kebunsaham" target="_blank">
+        <img src="./images/youtube-new.jpg"
+            class="w-8 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
       </a>
 
-      <a href="https://t.me/kebunsahamgrup"
-         target="_blank"
-         class="w-full sm:w-auto
-                border border-white/10
-                bg-white/5
-                hover:bg-white/10
-                transition
-                px-8 py-4 rounded-2xl
-                font-semibold text-center">
-
-        Lihat Komunitas
-
+      <a href="https://instagram.com/kebunsaham" target="_blank">
+        <img src="./images/instagram-new.jpg"
+            class="w-8 sm:w-10 md:w-16 object-contain hover:scale-110 transition">
       </a>
 
     </div>
 
-  </div>
+  </nav>
 
-</section>
+  <!-- FLOATING BUTTON -->
+  <a href="https://t.me/kebunsahamgrup"
+    target="_blank"
+    class="floating-button fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
+    onclick="gtag('event', 'click_telegram_community');">
 
-<!-- LINE -->
-<div class="green-line">
-  <div class="line"></div>
-  <div class="glow"></div>
-</div>
+    <div class="bg-gradient-to-r from-blue-500 to-black
+                px-3 sm:px-4
+                rounded-2xl
+                shadow-2xl
+                hover:scale-105
+                transition">
 
-<!-- SOCIAL PROOF -->
-<section id="testimoni"
-         data-aos="fade-up"
-         class="py-24 px-6">
-
-  <div class="text-center mb-14">
-
-    <h2 class="text-2xl md:text-4xl font-bold mb-4">
-      32.000+ Member Aktif
-    </h2>
-
-    <p class="text-gray-400 text-lg">
-      Testimoni Member Kebunsaham
-    </p>
-
-  </div>
-
-  <div class="slider-container">
-
-    <div id="testimonialSlider"
-         class="slider-track">
-
-      <!-- SLIDE 1 -->
-      <div class="slide active">
-
-        <div class="slide-item">
-          <img src="./images/testi1.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi2.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi3.png">
-        </div>
-
-      </div>
-
-      <!-- SLIDE 2 -->
-      <div class="slide">
-
-        <div class="slide-item">
-          <img src="./images/testi4.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi5.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi6.png">
-        </div>
-
-      </div>
-
-      <!-- SLIDE 3 -->
-      <div class="slide">
-
-        <div class="slide-item">
-          <img src="./images/testi7.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi8.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi9.png">
-        </div>
-
-      </div>
-
-      <!-- SLIDE 4 -->
-      <div class="slide">
-
-        <div class="slide-item">
-          <img src="./images/testi10.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi11.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/testi12.png">
-        </div>
-
-      </div>
+      <img src="./images/Gabung-new.png"
+          class="w-40 sm:w-48 md:w-72 object-contain">
 
     </div>
-
-  </div>
-
-  <!-- CONTROLS -->
-<div class="slider-controls">
-
-  <div class="slider-dots" id="testimonialDots"></div>
-
-  <div class="slider-arrows">
-
-    <button class="arrow-btn"
-            onclick="prevSlide('testimonialSlider')">
-      ←
-    </button>
-
-    <button class="arrow-btn"
-            onclick="nextSlide('testimonialSlider')">
-      →
-    </button>
-
-  </div>
-
-</div>
-
-<!-- TESTIMONIAL GROUP -->
-<section data-aos="fade-up"
-         class="pt-2 pb-20 px-6 text-center">
-
-  <p class="text-gray-400 mb-6">
-    Lihat hasil testimonial member di saluran WhatsApp
-  </p>
-
-  <a href="https://www.whatsapp.com/channel/0029VauIjRY6rsQjOSuLV10e"
-     class="bg-green-500 hover:scale-105 transition px-6 py-3 rounded-lg font-semibold">
-
-     Masuk Grup Testimoni
 
   </a>
 
-</section>
+  <!-- HERO -->
+  <section
+    data-aos="fade-up"
+    class="text-center pt-32 md:pt-40 pb-20 md:pb-28 px-5 md:px-6">
 
-<!-- LINE -->
-<div class="green-line">
-  <div class="line"></div>
-  <div class="glow"></div>
-</div>
+    <div class="max-w-5xl mx-auto">
 
-<!-- HASIL -->
-<section id="hasiltrade"
-         data-aos="fade-up"
-         class="py-24 px-6">
+      <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 md:mb-8">
 
-  <div class="text-center mb-14">
+        Bangun Kebebasan Finansial Dari
 
-    <h2 class="text-2xl md:text-4xl font-bold mb-4">
-      Hasil Trade Selama 10 Minggu
-    </h2>
+        <span class="bg-gradient-to-r from-green-400 to-emerald-300 text-transparent bg-clip-text">
 
-    <p class="text-gray-400 text-lg">
-      Dokumentasi hasil trading member
-    </p>
+          Signal Gold Hingga +12.000%
+          & Auto Trade Crypto
 
+        </span>
+
+      </h1>
+
+      <p class="text-gray-400 text-base md:text-xl max-w-3xl mx-auto leading-relaxed mb-8 md:mb-10">
+
+        Join komunitas trading terbesar Kebunsaham.
+        Dapatkan signal, analisa market, dan sistem auto-trade
+        untuk membantu profit lebih konsisten.
+
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+
+        <a href="#program"
+          class="main-btn">
+
+          Join Sekarang
+
+        </a>
+
+        <a href="https://t.me/kebunsahamgrup"
+          target="_blank"
+          onclick="gtag('event', 'click_telegram_community');"
+          class="w-full sm:w-auto
+                  border border-white/10
+                  bg-white/5
+                  hover:bg-white/10
+                  transition
+                  px-8 py-4 rounded-2xl
+                  font-semibold text-center">
+
+          Lihat Komunitas
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LINE -->
+  <div class="green-line">
+    <div class="line"></div>
+    <div class="glow"></div>
   </div>
 
-  <div class="slider-container">
+  <!-- SOCIAL PROOF -->
+  <section id="testimoni"
+          data-aos="fade-up"
+          class="py-24 px-6">
 
+    <div class="text-center mb-14">
 
-    <div id="hasilSlider"
-         class="slider-track">
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">
+        32.000+ Member Aktif
+      </h2>
 
-      <!-- SLIDE 1 -->
-      <div class="slide active">
+      <p class="text-gray-400 text-lg">
+        Testimoni Member Kebunsaham
+      </p>
 
-        <div class="slide-item">
-          <img src="./images/trade1.png">
+    </div>
+
+    <div class="slider-container">
+
+      <div id="testimonialSlider"
+          class="slider-track">
+
+        <!-- SLIDE 1 -->
+        <div class="slide active">
+
+          <div class="slide-item">
+            <img src="./images/testi01.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/testi02.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/testi03.png">
+          </div>
+
         </div>
 
-        <div class="slide-item">
-          <img src="./images/trade2.png">
+        <!-- SLIDE 2 -->
+        <div class="slide">
+
+          <div class="slide-item">
+            <img src="./images/testi04.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/testi05.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/testi06.png">
+          </div>
+
         </div>
 
-        <div class="slide-item">
-          <img src="./images/trade3.png">
+        <!-- SLIDE 3 -->
+        <div class="slide">
+
+          <div class="slide-item">
+            <img src="./images/testi07.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/testi08.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/testi09.png">
+          </div>
+
         </div>
 
-      </div>
+        <!-- SLIDE 4 -->
+        <div class="slide">
 
-      <!-- SLIDE 2 -->
-      <div class="slide">
+          <div class="slide-item">
+            <img src="./images/testi010.png">
+          </div>
 
-        <div class="slide-item">
-          <img src="./images/trade4.png">
-        </div>
+          <div class="slide-item">
+            <img src="./images/testi011.png">
+          </div>
 
-        <div class="slide-item">
-          <img src="./images/trade5.png">
-        </div>
+          <div class="slide-item">
+            <img src="./images/testi012.png">
+          </div>
 
-        <div class="slide-item">
-          <img src="./images/trade6.png">
-        </div>
-
-      </div>
-
-      <!-- SLIDE 3 -->
-      <div class="slide">
-
-        <div class="slide-item">
-          <img src="./images/trade7.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/trade8.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/trade9.png">
-        </div>
-
-      </div>
-
-      <!-- SLIDE 4 -->
-      <div class="slide">
-
-        <div class="slide-item">
-          <img src="./images/trade10.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/trade11.png">
-        </div>
-
-        <div class="slide-item">
-          <img src="./images/trade12.png">
         </div>
 
       </div>
 
     </div>
 
+    <!-- CONTROLS -->
+  <div class="slider-controls">
+
+    <div class="slider-dots" id="testimonialDots"></div>
+
+    <div class="slider-arrows">
+
+      <button class="arrow-btn"
+              onclick="prevSlide('testimonialSlider')">
+        ←
+      </button>
+
+      <button class="arrow-btn"
+              onclick="nextSlide('testimonialSlider')">
+        →
+      </button>
+
+    </div>
+
   </div>
 
-  <!-- CONTROLS -->
-<div class="slider-controls">
+  <!-- TESTIMONIAL GROUP -->
+  <section data-aos="fade-up"
+          class="pt-2 pb-20 px-6 text-center">
 
-  <div class="slider-dots" id="hasilDots"></div>
+    <p class="text-gray-400 mb-6">
+      Lihat hasil testimonial member di saluran WhatsApp
+    </p>
 
-  <div class="slider-arrows">
+    <a href="https://www.whatsapp.com/channel/0029VauIjRY6rsQjOSuLV10e"
+      class="bg-green-500 hover:scale-105 transition px-6 py-3 rounded-lg font-semibold">
 
-    <button class="arrow-btn"
-            onclick="prevSlide('hasilSlider')">
-      ←
-    </button>
+      Masuk Grup Testimoni
 
-    <button class="arrow-btn"
-            onclick="nextSlide('hasilSlider')">
-      →
-    </button>
+    </a>
+
+  </section>
+
+
+  </section>
+
+  <!-- LINE -->
+  <div class="green-line">
+    <div class="line"></div>
+    <div class="glow"></div>
+  </div>
+
+  <!-- HASIL -->
+  <section id="hasiltrade"
+          data-aos="fade-up"
+          class="py-24 px-6">
+
+    <div class="text-center mb-14">
+
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">
+        Hasil Trade Selama 10 Minggu
+      </h2>
+
+      <p class="text-gray-400 text-lg">
+        Dokumentasi hasil trading member
+      </p>
+
+    </div>
+
+    <div class="slider-container">
+
+
+      <div id="hasilSlider"
+          class="slider-track">
+
+        <!-- SLIDE 1 -->
+        <div class="slide active">
+
+          <div class="slide-item">
+            <img src="./images/trade01.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade02.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade03.png">
+          </div>
+
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide">
+
+          <div class="slide-item">
+            <img src="./images/trade04.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade05.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade06.png">
+          </div>
+
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide">
+
+          <div class="slide-item">
+            <img src="./images/trade07.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade08.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade09.png">
+          </div>
+
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide">
+
+          <div class="slide-item">
+            <img src="./images/trade010.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade011.png">
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/trade012.png">
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CONTROLS -->
+  <div class="slider-controls">
+
+    <div class="slider-dots" id="hasilDots"></div>
+
+    <div class="slider-arrows">
+
+      <button class="arrow-btn"
+              onclick="prevSlide('hasilSlider')">
+        ←
+      </button>
+
+      <button class="arrow-btn"
+              onclick="nextSlide('hasilSlider')">
+        →
+      </button>
+
+    </div>
 
   </div>
 
-</div>
+  </section>
 
-</section>
+  <!-- SCRIPT -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<!-- SCRIPT -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
 
-<script>
-
-AOS.init({
-  duration: 1000,
-  once: true,
-});
-
-const sliders = {};
-
-function setupSlider(id, dotsId) {
-
-  const slider = document.getElementById(id);
-  const slides = slider.querySelectorAll(".slide");
-  const dotsContainer = document.getElementById(dotsId);
-
-  let current = 0;
-
-  // CREATE DOTS
-  slides.forEach((_, index) => {
-
-    const dot = document.createElement("div");
-
-    dot.classList.add("slider-dot");
-
-    if(index === 0) {
-      dot.classList.add("active");
-    }
-
-    dot.addEventListener("click", () => {
-
-      current = index;
-
-      showSlide(current);
-
-    });
-
-    dotsContainer.appendChild(dot);
-
+  AOS.init({
+    duration: 1000,
+    once: true,
   });
 
-  const dots = dotsContainer.querySelectorAll(".slider-dot");
+  const sliders = {};
 
-  function showSlide(index) {
+  function setupSlider(id, dotsId) {
 
-    slides.forEach(slide => {
-      slide.classList.remove("active");
+    const slider = document.getElementById(id);
+    const slides = slider.querySelectorAll(".slide");
+    const dotsContainer = document.getElementById(dotsId);
+
+    let current = 0;
+
+    // CREATE DOTS
+    slides.forEach((_, index) => {
+
+      const dot = document.createElement("div");
+
+      dot.classList.add("slider-dot");
+
+      if(index === 0) {
+        dot.classList.add("active");
+      }
+
+      dot.addEventListener("click", () => {
+
+        current = index;
+
+        showSlide(current);
+
+      });
+
+      dotsContainer.appendChild(dot);
+
     });
 
-    dots.forEach(dot => {
-      dot.classList.remove("active");
-    });
+    const dots = dotsContainer.querySelectorAll(".slider-dot");
 
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
+    function showSlide(index) {
+
+      slides.forEach(slide => {
+        slide.classList.remove("active");
+      });
+
+      dots.forEach(dot => {
+        dot.classList.remove("active");
+      });
+
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+
+    }
+
+    sliders[id] = {
+
+      next() {
+
+        current = (current + 1) % slides.length;
+
+        showSlide(current);
+
+      },
+
+      prev() {
+
+        current = (current - 1 + slides.length) % slides.length;
+
+        showSlide(current);
+
+      }
+
+    };
+
+    setInterval(() => {
+
+      sliders[id].next();
+
+    }, 3500);
 
   }
 
-  sliders[id] = {
-
-    next() {
-
-      current = (current + 1) % slides.length;
-
-      showSlide(current);
-
-    },
-
-    prev() {
-
-      current = (current - 1 + slides.length) % slides.length;
-
-      showSlide(current);
-
-    }
-
-  };
-
-  setInterval(() => {
+  function nextSlide(id) {
 
     sliders[id].next();
 
-  }, 3500);
+  }
 
-}
+  function prevSlide(id) {
 
-function nextSlide(id) {
+    sliders[id].prev();
 
-  sliders[id].next();
+  }
 
-}
+  setupSlider("testimonialSlider", "testimonialDots");
+  setupSlider("hasilSlider", "hasilDots");
 
-function prevSlide(id) {
+  </script>
 
-  sliders[id].prev();
-
-}
-
-setupSlider("testimonialSlider", "testimonialDots");
-setupSlider("hasilSlider", "hasilDots");
-
-</script>
-
-<!-- LINE -->
-<div class="green-line">
-  <div class="line"></div>
-  <div class="glow"></div>
-</div>
-
-<!-- FEATURED GRID -->
-<section id="program"
-         data-aos="fade-up"
-         class="py-24 px-6">
-
-  <div class="text-center mb-16">
-
-    <h2 class="text-2xl md:text-4xl font-bold mb-5">
-      Pilihan Program
-    </h2>
-
-    <p class="text-gray-400">
-      Sistem trading & bisnis digital Kebunsaham
-    </p>
-
+  <!-- LINE -->
+  <div class="green-line">
+    <div class="line"></div>
+    <div class="glow"></div>
   </div>
 
-  <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+  <!-- FEATURED GRID -->
+  <section id="program"
+          data-aos="fade-up"
+          class="py-24 px-6">
 
-    <!-- VIP GOLD -->
-    <div class="program-card">
+    <div class="text-center mb-16">
 
-      <h3 class="text-2xl font-bold mb-8">
-        VIP GOLD💰
-      </h3>
+      <h2 class="text-2xl md:text-4xl font-bold mb-5">
+        Pilihan Program
+      </h2>
 
-      <ul class="space-y-4 text-gray-300 mb-10">
-        <li>• Signal Gold Harian</li>
-        <li>• Setup Entry Lengkap</li>
-        <li>• Live Market Update</li>
-        <li>• Risk Management</li>
-      </ul>
+      <p class="text-gray-400">
+        Sistem trading & bisnis digital Kebunsaham
+      </p>
 
-      <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20join%20VIP%20Gold"
+    </div>
+
+    <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
+      <!-- VIP GOLD -->
+<div class="program-card">
+
+  <h3 class="text-2xl font-bold mb-8">
+    VIP GOLD💰
+  </h3>
+
+  <ul class="space-y-4 text-gray-300 mb-10">
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Sinyal Gold harian dengan arahan entry, TP, dan SL yang jelas.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Mapping market sebelum harga bergerak.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Update market real-time saat peluang trading muncul.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Risk management untuk bantu trading lebih terukur dan disiplin.</span>
+  </li>
+
+</ul>
+
+  <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20join%20VIP%20Gold"
+     class="main-btn w-full text-center"
+     onclick="gtag('event', 'click_whatsapp_vip_gold');">
+    Masuk VIP Gold
+  </a>
+
+</div>
+
+      <!-- VIP CRYPTO -->
+      <div class="program-card">
+
+        <h3 class="text-2xl font-bold mb-8">
+          VIP Crypto🪙
+        </h3>
+
+        <ul class="space-y-4 text-gray-300 mb-10">
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Strategi auto trade crypto dengan pendekatan bertahap.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Peluang passive income dari sistem crypto yang berjalan otomatis.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Gabung Komunitas berkualitas se Indonesia.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Cocok untuk kamu yang ingin ikut crypto tanpa pantau market terus.</span>
+  </li>
+
+</ul>
+
+        <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20join%20VIP%20Crypto"
           class="main-btn w-full text-center"
-          onclick="gtag('event', 'click_whatsapp_vip_gold');">
-          Hubungi
-      </a>
+          onclick="gtag('event', 'click_whatsapp_vip_crypto');">
+
+          Mulai VIP Crypto
+
+        </a>
+
+      </div>
+
+      <!-- PRO TRADER -->
+      <div class="program-card">
+
+        <h3 class="text-2xl font-bold mb-8">
+          PRO Trader🎓
+        </h3>
+
+        <ul class="space-y-4 text-gray-300 mb-10">
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Private Mentoring untuk membangun skill trading dari dasar.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Belajar membaca market, mencari entry, dan menentukan exit.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Bangun psikologi trading agar tidak mudah panik saat market bergerak.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Bimbingan langsung agar proses belajar lebih cepat dan terarah.</span>
+  </li>
+
+</ul>
+
+        <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20ikut%20Pelatihan%20Pro%20Trader"
+          class="main-btn w-full text-center"
+          onclick="gtag('event', 'click_whatsapp_pro_trader');">
+
+          Ikut Mentoring
+
+        </a>
+
+      </div>
+
+      <!-- AFFILIATE -->
+      <div class="program-card">
+
+        <h3 class="text-2xl font-bold mb-8">
+          Affiliate🎯
+        </h3>
+
+        <ul class="space-y-4 text-gray-300 mb-10">
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Bangun income dari ekosistem VIP Gold Kebunsaham.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Belajar memasarkan program trading dengan sistem yang sudah berjalan.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Potensi passive income hingga 2 Miliar/bulan dari jaringan affiliate.</span>
+  </li>
+
+  <li class="flex items-start gap-2">
+    <span class="text-green-400 shrink-0">•</span>
+    <span>Cocok untuk kamu yang ingin bangun bisnis digital di dunia trading.</span>
+  </li>
+
+</ul>
+
+        <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20ikut%20Affiliate%20Income"
+          class="main-btn w-full text-center"
+          onclick="gtag('event', 'click_whatsapp_affiliate');">
+
+          Gabung Affiliate
+
+        </a>
+
+      </div>
 
     </div>
 
-    <!-- VIP CRYPTO -->
-    <div class="program-card">
+  </section>
 
-      <h3 class="text-2xl font-bold mb-8">
-        VIP Crypto🪙
-      </h3>
+  <!-- LINE -->
+  <div class="green-line">
+    <div class="line"></div>
+    <div class="glow"></div>
+  </div>
 
-      <ul class="space-y-4 text-gray-300 mb-10">
-        <li>• Auto Trade Crypto</li>
-        <li>• Passive Income</li>
-        <li>• Ternak Crypto</li>
-        <li>• Sistem Algoritma</li>
-      </ul>
+  <!-- WHY -->
+  <section data-aos="fade-up"
+          class="py-16 md:py-20 px-4 sm:px-6">
 
-      <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20join%20VIP%20Crypto"
-         class="main-btn w-full text-center"
-         onclick="gtag('event', 'click_whatsapp_vip_crypto');">
+    <div class="max-w-6xl mx-auto text-center">
 
-        Hubungi
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 leading-tight">
+        Kenapa Harus Kebunsaham?
+      </h2>
 
-      </a>
+      <p class="text-gray-400
+        text-base sm:text-lg
+        max-w-2xl md:max-w-3xl
+        mx-auto
+        leading-relaxed">
+        Kebunsaham sudah membantu ribuan member berkembang melalui
+        live market update, daily informasi market, dan sistem trading
+        yang terus berkembang sejak 2023.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 md:gap-5 mt-10 md:mt-12">
+
+        <!-- CARD 1 -->
+        <div class="relative overflow-hidden
+                    rounded-3xl
+                    border border-white/10
+                    bg-white/[0.03]
+                    backdrop-blur-xl
+                    px-8 py-10
+                    hover:border-green-400/30
+                    hover:-translate-y-1
+                    transition duration-300">
+
+          <!-- GLOW -->
+          <div class="absolute inset-0
+                      bg-gradient-to-b
+                      from-green-500/10
+                      to-transparent
+                      opacity-60">
+          </div>
+
+          <div class="relative z-10"> 
+
+  <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-5">
+    120x📈
+  </h3>
+
+  <p class="text-gray-300 leading-relaxed text-sm md:text-base mb-5">
+    Total profit berkembang lebih dari
+    <span class="text-white font-semibold">
+      120x lipat
+    </span>
+    bersama member sejak 2023.
+  </p>
+
+  <p class="text-gray-400 leading-relaxed text-sm">
+    Didukung oleh dokumentasi hasil trade, testimoni member,
+    dan update market yang dibagikan secara konsisten.
+  </p>
+
+</div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="relative overflow-hidden
+                    rounded-3xl
+                    border border-white/10
+                    bg-white/[0.03]
+                    backdrop-blur-xl
+                    px-8 py-10
+                    hover:border-green-400/30
+                    hover:-translate-y-1
+                    transition duration-300">
+
+          <!-- GLOW -->
+          <div class="absolute inset-0
+                      bg-gradient-to-b
+                      from-green-500/10
+                      to-transparent
+                      opacity-60">
+          </div>
+
+          <div class="relative z-10">
+
+            <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-5">
+              32K+👤
+            </h3>
+
+            <p class="text-gray-300 leading-relaxed text-sm md:text-base mb-5">
+    Komunitas aktif dengan lebih dari
+    <span class="text-white font-semibold">
+      32.000 member
+    </span>
+    dan ribuan testimoni.
+  </p>
+
+  <p class="text-gray-400 leading-relaxed text-sm">
+    Member mendapatkan akses informasi market, pembahasan harian,
+    dan lingkungan trading yang aktif untuk berkembang bersama.
+  </p>
+
+</div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="relative overflow-hidden
+                    rounded-3xl
+                    border border-white/10
+                    bg-white/[0.03]
+                    backdrop-blur-xl
+                    px-8 py-10
+                    hover:border-green-400/30
+                    hover:-translate-y-1
+                    transition duration-300">
+
+          <!-- GLOW -->
+          <div class="absolute inset-0
+                      bg-gradient-to-b
+                      from-green-500/10
+                      to-transparent
+                      opacity-60">
+          </div>
+
+          <div class="relative z-10">
+
+  <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-5">
+    LIVE🔴
+  </h3>
+
+  <p class="text-gray-300 leading-relaxed text-sm md:text-base mb-6">
+    Live market update harian melalui
+    <span class="text-white font-semibold">
+      TikTok Live dan YouTube.
+    </span>
+  </p>
+
+  <div class="flex justify-center items-center gap-5">
+
+    <a href="https://www.tiktok.com/@kebunsaham2"
+       target="_blank"
+       title="TikTok Live"
+       class="hover:scale-110 transition">
+
+      <img src="./images/tiktok-live.png"
+           alt="TikTok Live Kebunsaham"
+           class="w-14 md:w-16 object-contain rounded-xl">
+
+    </a>
+
+    <a href="https://www.youtube.com/@kebunsaham"
+       target="_blank"
+       title="YouTube Kebunsaham"
+       class="hover:scale-110 transition">
+
+      <img src="./images/youtube-live.png"
+           alt="YouTube Kebunsaham"
+           class="w-14 md:w-16 object-contain rounded-xl">
+
+    </a>
+
+  </div>
+
+</div>
+
+      </div>
 
     </div>
 
-    <!-- PRO TRADER -->
-    <div class="program-card">
+  </section>
 
-      <h3 class="text-2xl font-bold mb-8">
-        PRO Trader🎓
-      </h3>
 
-      <ul class="space-y-4 text-gray-300 mb-10">
-        <li>• Private Mentoring</li>
-        <li>• Psychology Trading</li>
-        <li>• Teknik Entry Exit</li>
-        <li>• Full Guidance</li>
-      </ul>
+  <!-- LINE -->
+  <div class="green-line">
+    <div class="line"></div>
+    <div class="glow"></div>
+  </div>
 
-      <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20ikut%20Pelatihan%20Pro%20Trader"
-         class="main-btn w-full text-center"
-         onclick="gtag('event', 'click_whatsapp_pro_trader');">
+  <!-- FAQ -->
+  <section id="faq"
+          data-aos="fade-up"
+          class="faq-shell py-16 md:py-24 px-4 sm:px-6">
 
-        Hubungi
+    <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-      </a>
+      <!-- LEFT CONTENT -->
+      <div class="lg:col-span-5 lg:sticky lg:top-32">
 
+        <p class="text-green-400 text-sm font-semibold tracking-[0.28em] uppercase mb-4">
+          Frequently Asked Question
+        </p>
+
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-5">
+          Pertanyaan yang Sering
+          <span class="block bg-gradient-to-r from-green-400 to-emerald-300 text-transparent bg-clip-text">
+            Ditanyakan
+          </span>
+        </h2>
+
+        <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20bertanya%20tentang%20Kebunsaham"
+           target="_blank"
+           onclick="gtag('event', 'click_whatsapp_faq');"
+           class="main-btn">
+          Tanya Langsung
+        </a>
+
+        <p class="text-gray-500 text-sm leading-relaxed mt-5 max-w-md">
+          Kalau pertanyaan kamu lebih personal seperti modal, pilihan paket, atau cara join,
+          lebih baik langsung chat saya supaya jawabannya sesuai kondisi kamu.
+        </p>
+
+      </div>
+
+      <!-- FAQ LIST -->
+<div class="lg:col-span-7 space-y-4">
+
+  <div class="faq-item">
+    <button class="faq-question" type="button" aria-expanded="false">
+      <span>Saya masih pemula, apakah aman untuk mulai?</span>
+
+      <span class="faq-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9L12 15L18 9"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Bisa mulai, tapi jangan datang dengan mindset ingin profit instan.
+        Pemula harus fokus dulu pada cara baca arahan, risk management, ukuran lot,
+        dan disiplin. Trading tetap punya risiko, jadi mulai dengan modal yang sehat.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" type="button" aria-expanded="false">
+      <span>Kalau saya sibuk kerja atau sekolah, masih bisa ikut?</span>
+
+      <span class="faq-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9L12 15L18 9"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Bisa, selama kamu masih punya waktu untuk membaca update dan mengatur risiko.
+        Jangan asal entry hanya karena ada signal. Kalau waktumu sangat terbatas,
+        pilih program yang paling sesuai dengan rutinitas kamu.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" type="button" aria-expanded="false">
+      <span>Apakah saya harus langsung pakai modal besar?</span>
+
+      <span class="faq-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9L12 15L18 9"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Tidak. Justru lebih baik mulai dari modal yang kamu siap risikokan.
+        Jangan pakai uang kebutuhan harian, uang pinjaman, atau dana yang kamu tidak siap rugi.
+        Yang penting bukan modal besar, tapi cara mengelola risiko.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" type="button" aria-expanded="false">
+      <span>Apakah signal dari Kebunsaham selalu benar?</span>
+
+      <span class="faq-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9L12 15L18 9"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Tidak. Tidak ada signal yang selalu benar. Market bisa berubah kapan saja.
+        Karena itu stop loss, risk management, dan disiplin tetap wajib.
+        Profit tidak dijamin dan keputusan trading tetap tanggung jawab masing-masing.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" type="button" aria-expanded="false">
+      <span>Apa bedanya ikut komunitas dibanding trading sendiri?</span>
+
+      <span class="faq-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9L12 15L18 9"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Trading sendiri sering membuat orang bingung, panik, dan tidak punya arah.
+        Di komunitas, kamu bisa mengikuti update market, melihat mapping, belajar dari arahan,
+        dan punya lingkungan yang lebih terstruktur.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" type="button" aria-expanded="false">
+      <span>Kalau saya masih ragu pilih program, harus bagaimana?</span>
+
+      <span class="faq-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9L12 15L18 9"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Langsung chat WhatsApp Kebunsaham. Jelaskan pengalaman kamu, market yang kamu minati,
+        waktu yang kamu punya, dan tujuan kamu. Nanti akan diarahkan ke program yang paling masuk akal.
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA FAQ BUTTON -->
+<button class="extra-faq-toggle" type="button" id="extraFaqToggle">
+  <span>Lihat Pertanyaan Trading Lainnya</span>
+
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <path d="M6 9L12 15L18 9"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<!-- EXTRA FAQ LIST -->
+<div class="extra-faq-wrapper" id="extraFaqWrapper">
+
+  <div class="space-y-4">
+
+    <!-- EXTRA FAQ 1 -->
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Apa strategi atau metode trading yang bagus?</span>
+
+        <span class="faq-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Strategi yang bagus adalah strategi yang sesuai dengan karakter, waktu, modal,
+          dan kemampuan kamu dalam mengatur risiko. Dasar yang penting untuk dipahami
+          adalah support dan resistance. Untuk arahan market harian, kamu bisa mulai dari
+          VIP Gold. Kalau ingin belajar lebih detail dari dasar, pelatihan Pro Trader lebih cocok.
+        </div>
+      </div>
     </div>
 
-    <!-- AFFILIATE -->
-    <div class="program-card">
+    <!-- EXTRA FAQ 2 -->
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Mengapa akun bisa Margin Call atau MC?</span>
 
-      <h3 class="text-2xl font-bold mb-8">
-        Affiliate🎯
-      </h3>
+        <span class="faq-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
 
-      <ul class="space-y-4 text-gray-300 mb-10">
-        <li>• Membangun bisnis VIP Gold</li>
-        <li>• Ternak Crypto</li>
-        <li class="flex items-start gap-1">
-            <span class="text-white-400 shrink-0">•</span>
-            <span>Passive Income Hingga 2 Miliar/bulan</span>
-        </li>
-      </ul>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Margin Call biasanya terjadi karena modal tidak cukup kuat menahan pergerakan market,
+          ukuran lot terlalu besar, atau tidak memakai batas risiko yang jelas. Semakin kecil modal
+          dan semakin besar lot, semakin cepat akun tertekan saat market bergerak berlawanan arah.
+        </div>
+      </div>
+    </div>
 
-      <a href="https://wa.me/6281330536588?text=Halo%2C%20Saya%20mau%20ikut%20Affiliate%20Income"
-         class="main-btn w-full text-center"
-         onclick="gtag('event', 'click_whatsapp_affiliate');">
+    <!-- EXTRA FAQ 3 -->
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Lebih baik pakai money management atau full margin?</span>
 
-        Hubungi
+        <span class="faq-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
 
-      </a>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Gunakan money management. Full margin bukan strategi yang sehat untuk jangka panjang,
+          karena satu pergerakan market yang salah bisa langsung menekan akun. Trading yang baik
+          bukan hanya soal entry, tapi soal bertahan dan mengelola risiko.
+        </div>
+      </div>
+    </div>
 
+    <!-- EXTRA FAQ 4 -->
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Saya pemula dan belum mengerti trading, apakah bisa ikut?</span>
+
+        <span class="faq-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Bisa, asalkan siap belajar, adaptasi, dan tidak datang dengan mindset ingin hasil instan.
+          Untuk pemula, lebih baik mulai dari arahan yang terstruktur seperti VIP Gold, sambil
+          tetap belajar risk management dan cara membaca market.
+        </div>
+      </div>
+    </div>
+
+    <!-- EXTRA FAQ 5 -->
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Mengapa saat saya buy harga turun, saat saya sell harga naik?</span>
+
+        <span class="faq-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Biasanya ini terjadi karena entry dilakukan tanpa rencana, terlalu terburu-buru,
+          atau psikologi trading sedang terganggu. Banyak pemula merasa market selalu melawan,
+          padahal masalah utamanya sering ada di timing, emosi, dan keinginan untuk cepat profit.
+        </div>
+      </div>
+    </div>
+
+    <!-- EXTRA FAQ 6 -->
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Apakah locking atau hedging itu efektif?</span>
+
+        <span class="faq-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Locking atau hedging tidak disarankan untuk pemula karena sering membuat masalah
+          semakin rumit. Banyak trader akhirnya menambah deposit hanya untuk mempertahankan
+          posisi yang seharusnya sudah dibatasi sejak awal. Lebih baik belajar cut loss,
+          risk management, dan entry yang lebih disiplin.
+        </div>
+      </div>
+    </div>
+
+    <!-- EXTRA FAQ 7 -->
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Apa bedanya trading satu arah dan dua arah?</span>
+
+        <span class="faq-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Trading satu arah seperti spot hanya fokus membeli aset dan menunggu harga naik.
+          Trading dua arah seperti derivatif bisa mengambil posisi buy atau sell, tetapi risikonya
+          lebih tinggi karena biasanya melibatkan leverage. Untuk pemula, market satu arah seperti
+          crypto spot lebih mudah dipahami sebelum masuk ke instrumen yang lebih agresif.
+        </div>
+      </div>
     </div>
 
   </div>
 
-</section>
-
-<!-- LINE -->
-<div class="green-line">
-  <div class="line"></div>
-  <div class="glow"></div>
 </div>
 
-<!-- WHY -->
-<section data-aos="fade-up"
-         class="py-16 md:py-20 px-4 sm:px-6">
-
-  <div class="max-w-6xl mx-auto text-center">
-
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 leading-tight">
-      Kenapa Harus Kebunsaham?
-    </h2>
-
-    <p class="text-gray-400
-       text-base sm:text-lg
-       max-w-2xl md:max-w-3xl
-       mx-auto
-       leading-relaxed">
-      Kebunsaham sudah membantu ribuan member berkembang melalui
-      live market update, daily informasi market, dan sistem trading
-      yang terus berkembang sejak 2023.
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-6 md:gap-5 mt-10 md:mt-12">
-
-      <!-- CARD 1 -->
-      <div class="relative overflow-hidden
-                  rounded-3xl
-                  border border-white/10
-                  bg-white/[0.03]
-                  backdrop-blur-xl
-                  px-8 py-10
-                  hover:border-green-400/30
-                  hover:-translate-y-1
-                  transition duration-300">
-
-        <!-- GLOW -->
-        <div class="absolute inset-0
-                    bg-gradient-to-b
-                    from-green-500/10
-                    to-transparent
-                    opacity-60">
-        </div>
-
-        <div class="relative z-10">
-
-          <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-5">
-            120x📈
-          </h3>
-
-          <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-            Total profit berkembang lebih dari
-            <span class="text-white font-semibold">
-              120x lipat
-            </span>
-            bersama member sejak 2023.
-          </p>
-
-        </div>
-
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="relative overflow-hidden
-                  rounded-3xl
-                  border border-white/10
-                  bg-white/[0.03]
-                  backdrop-blur-xl
-                  px-8 py-10
-                  hover:border-green-400/30
-                  hover:-translate-y-1
-                  transition duration-300">
-
-        <!-- GLOW -->
-        <div class="absolute inset-0
-                    bg-gradient-to-b
-                    from-green-500/10
-                    to-transparent
-                    opacity-60">
-        </div>
-
-        <div class="relative z-10">
-
-          <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-5">
-            32K+👤
-          </h3>
-
-          <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-            Komunitas aktif dengan lebih dari
-            <span class="text-white font-semibold">
-              32.000 member
-            </span>
-            dan ribuan testimoni.
-          </p>
-
-        </div>
-
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="relative overflow-hidden
-                  rounded-3xl
-                  border border-white/10
-                  bg-white/[0.03]
-                  backdrop-blur-xl
-                  px-8 py-10
-                  hover:border-green-400/30
-                  hover:-translate-y-1
-                  transition duration-300">
-
-        <!-- GLOW -->
-        <div class="absolute inset-0
-                    bg-gradient-to-b
-                    from-green-500/10
-                    to-transparent
-                    opacity-60">
-        </div>
-
-        <div class="relative z-10">
-
-          <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-5">
-            LIVE🔴
-          </h3>
-
-          <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-  Live harian di
-  <span class="text-white font-semibold">
-    TikTok dan YouTube
-  </span>
-   dengan informasi market setiap hari.
-</p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-<!-- LINE -->
-<div class="green-line">
-  <div class="line"></div>
-  <div class="glow"></div>
-</div>
-
-<!-- CLOSING CTA -->
+<!-- QUOTE -->
 <section data-aos="fade-up"
          class="py-24 px-6 text-center">
 
   <div class="max-w-4xl mx-auto">
 
-    <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-8">
+    <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-6">
 
-      Kamu Bisa Terus
-      Menonton Orang Lain Profit,
-
-      <span class="bg-gradient-to-r from-green-400 to-emerald-300 text-transparent bg-clip-text">
-
-        Atau Mulai Bangun
-        Sistem Profitmu Sendiri.
-
+      “Be 
+      <span class="text-green-400">
+        fearful
       </span>
+      when others are 
+      <span class="text-red-400">
+        greedy
+      </span>,
+      and 
+      <span class="text-green-400">
+        greedy
+      </span>
+      when others are 
+      <span class="text-red-400">
+        fearful
+      </span>.”
 
     </h2>
 
-    <p class="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed mb-8">
-
-      Kebanyakan orang menunda terlalu lama.
-      Padahal market tetap berjalan setiap hari.
-      Pilih apakah kamu ingin jadi penonton,
-      atau ikut membangun hasil mulai sekarang.
-
+    <p class="text-gray-400 text-base md:text-xl leading-relaxed mb-4">
+      "Takutlah saat orang lain 
+      <span class="text-red-400 font-semibold">
+        serakah
+      </span>,
+      dan beranilah saat orang lain 
+      <span class="text-green-400 font-semibold">
+        takut
+      </span>."
     </p>
 
-    <a href="#program"
-      class="main-btn text-xl">
-
-      Gabung Sekarang
-
-    </a>
+    <p class="text-gray-500 text-sm md:text-base">
+      — Warren Buffett
+    </p>
 
   </div>
 
 </section>
 
-<!-- DISCLAIMER -->
-<section class="pb-16 px-6 text-center">
+<!-- CONTACT FOOTER -->
+<footer class="border-t border-white/10 px-6 py-12 text-center">
 
-  <p class="text-gray-500 text-sm max-w-3xl mx-auto leading-relaxed">
+  <div class="max-w-4xl mx-auto flex flex-col items-center">
+
+    <!-- DISCLAIMER -->
+<section class="py-10 px-6 text-center">
+
+  <p class="text-gray-500 text-xs md:text-sm max-w-4xl mx-auto leading-relaxed">
 
     ⚠️ Disclaimer:
-    Semua keputusan trading adalah tanggung jawab masing-masing.
-    Trading memiliki risiko. Gunakan money management dengan baik.
+    Informasi, sinyal, analisa, edukasi, testimoni, dan hasil trading yang ditampilkan
+    di website ini hanya bersifat edukasi dan informasi, bukan ajakan, jaminan profit,
+    atau rekomendasi keuangan pribadi. Trading forex, gold, crypto, dan instrumen
+    berisiko lainnya memiliki potensi keuntungan dan kerugian. Hasil masa lalu tidak
+    menjamin hasil di masa depan. Semua keputusan transaksi, penggunaan modal,
+    dan risiko kerugian sepenuhnya menjadi tanggung jawab masing-masing pengguna.
+    Gunakan money management dengan bijak dan jangan menggunakan dana yang tidak
+    siap untuk mengalami kerugian.
 
   </p>
 
 </section>
 
-</body>
-</html>
+    <!-- LOGO -->
+    <a href="#" class="mb-6">
+      <img src="./images/logo.png"
+           class="h-14 md:h-16 object-contain"
+           alt="Kebunsaham Logo">
+    </a>
+
+    <!-- CONTACT -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 text-sm md:text-base text-white font-medium mb-3">
+
+      <a href="https://wa.me/6281330536588"
+         target="_blank"
+         class="hover:text-green-400 transition">
+        +62 813-3053-6588
+      </a>
+
+      <span class="hidden md:inline text-gray-500">|</span>
+
+      <a href="https://wa.me/6282334973602"
+         target="_blank"
+         class="hover:text-green-400 transition">
+        +62 823-3497-3602
+      </a>
+
+      <span class="hidden md:inline text-gray-500">|</span>
+
+      <a href="mailto:duniacepat@gmail.com"
+         class="hover:text-green-400 transition">
+        duniacepat@gmail.com
+      </a>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <p class="text-gray-400 text-xs md:text-sm">
+      Copyright © 2026 Kebunsaham. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+  <script>
+  document.querySelectorAll('.faq-question').forEach((button) => {
+    button.addEventListener('click', () => {
+      const currentItem = button.closest('.faq-item');
+      const currentAnswer = currentItem.querySelector('.faq-answer');
+      const isOpen = currentItem.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach((item) => {
+        item.classList.remove('active');
+        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        item.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        currentItem.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+        currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
+      }
+    });
+  });
+  </script>
+
+  <script>
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", function (event) {
+      const targetId = this.getAttribute("href");
+
+      if (targetId === "#") return;
+
+      const targetSection = document.querySelector(targetId);
+
+      if (!targetSection) return;
+
+      event.preventDefault();
+
+      const navbar = document.querySelector("nav");
+      const navbarHeight = navbar ? navbar.offsetHeight + 20 : 100;
+
+      const targetPosition =
+        targetSection.getBoundingClientRect().top +
+        window.pageYOffset -
+        navbarHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+    });
+  });
+
+</script>
+
+
+  <script>
+  const extraFaqToggle = document.getElementById("extraFaqToggle");
+  const extraFaqWrapper = document.getElementById("extraFaqWrapper");
+
+  if (extraFaqToggle && extraFaqWrapper) {
+    extraFaqToggle.addEventListener("click", () => {
+      const isOpen = extraFaqWrapper.classList.contains("show");
+
+      if (isOpen) {
+        extraFaqWrapper.classList.remove("show");
+        extraFaqWrapper.style.maxHeight = null;
+        extraFaqToggle.classList.remove("active");
+        extraFaqToggle.querySelector("span").textContent = "Lihat Pertanyaan Trading Lainnya";
+      } else {
+        extraFaqWrapper.classList.add("show");
+        extraFaqWrapper.style.maxHeight = extraFaqWrapper.scrollHeight + "px";
+        extraFaqToggle.classList.add("active");
+        extraFaqToggle.querySelector("span").textContent = "Sembunyikan Pertanyaan Tambahan";
+      }
+    });
+  }
+  </script>
+  </body>
+  </html>
